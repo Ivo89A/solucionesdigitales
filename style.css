@@ -1,0 +1,12 @@
+body {
+  font-family: 'Mulish', sans-serif;
+}
+
+.btn-cta {
+  background-color: #00CF83;
+  transition: box-shadow 0.3s ease;
+}
+
+.btn-cta:hover {
+  box-shadow: 0 0 10px #00CF83;
+}

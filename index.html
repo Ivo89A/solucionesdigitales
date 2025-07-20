@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Soluciones Digitales</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;700&display=swap" rel="stylesheet" />
+  </head>
+
+  <body class="bg-[#FAFAFA] font-[Mulish] text-[#252422]">
+
+    <header class="bg-[#003049] text-[#fefae0] p-5">
+      <div class="max-w-6xl mx-auto">
+        <h1 class="text-2xl font-bold">Soluciones Digitales</h1>
+      </div>
+    </header>
+
+    <section class="py-16 text-center px-4">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-4xl font-extrabold mb-4">Soluciones Digitales</h2>
+        <p class="text-xl">Impulsá tu empresa con páginas web profesionales y automatizaciones inteligentes.</p>
+      </div>
+    </section>
+
+    <section class="py-16 px-6 bg-white">
+      <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-10">
+        <div class="bg-white p-6 rounded-2xl shadow-md border">
+          <h3 class="text-2xl font-semibold mb-4">Desarrollo de páginas web</h3>
+          <ul class="space-y-2 list-disc list-inside">
+            <li>Sitios rápidos, seguros y adaptados a celulares</li>
+            <li>Formularios conectados a tu correo</li>
+            <li>Diseño profesional que genera confianza</li>
+          </ul>
+        </div>
+        <div class="bg-white p-6 rounded-2xl shadow-md border">
+          <h3 class="text-2xl font-semibold mb-4">Automatizaciones con n8n</h3>
+          <ul class="space-y-2 list-disc list-inside">
+            <li>Automatización de tareas repetitivas</li>
+            <li>Envío automático de correos y formularios</li>
+            <li>Integración con Google Sheets, WhatsApp, CRMs, etc.</li>
+            <li>Ahorro de tiempo y reducción de errores</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 px-4">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl font-bold">Solicitar Informe</h2>
+        <p class="text-lg text-gray-700 mt-2">Contanos sobre tu proyecto y recibí un informe personalizado</p>
+      </div>
+      <div class="bg-white shadow-lg rounded-2xl p-8 w-full max-w-xl mx-auto">
+        <form action="https://formspree.io/f/mjkoggwy" method="POST" class="space-y-6">
+  <div>
+    <label class="block text-sm font-medium mb-1" for="empresa">Nombre de empresa *</label>
+    <input type="text" id="empresa" name="empresa" placeholder="Tu empresa"
+      class="w-full border rounded-lg p-3 text-sm outline-none focus:ring-2 focus:ring-[#00CF83]" required />
+  </div>
+
+  <div>
+    <label class="block text-sm font-medium mb-1" for="email">Correo corporativo *</label>
+    <input type="email" id="email" name="email" placeholder="contacto@tuempresa.com"
+      class="w-full border rounded-lg p-3 text-sm outline-none focus:ring-2 focus:ring-[#00CF83]" required />
+  </div>
+
+  <div>
+    <label class="block text-sm font-medium mb-1" for="mensaje">Mensaje personalizado *</label>
+    <textarea id="mensaje" name="mensaje" rows="5"
+      placeholder="Contanos sobre tu proyecto, necesidades y objetivos..."
+      class="w-full border rounded-lg p-3 text-sm outline-none focus:ring-2 focus:ring-[#00CF83]" required></textarea>
+  </div>
+
+  <button type="submit"
+    class="w-full flex items-center justify-center gap-2 py-3 px-6 rounded-lg font-semibold text-white text-base bg-[#00CF83] transition-shadow hover:shadow-[0_0_10px_#00CF83]">
+    Solicitar Informe
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
+      viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+    </svg>
+  </button>
+</form>
+
+      </div>
+    </section>
+
+    <footer class="bg-[#003049] text-[#fefae0] text-center py-4">
+      <p>Desarrollado por Soluciones Digitales | 2025</p>
+    </footer>
+
+  </body>
+</html>
