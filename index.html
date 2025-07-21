@@ -9,49 +9,81 @@
   <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;700&display=swap" rel="stylesheet" />
 </head>
+<style>
+  /* Animación de flotación */
+  @keyframes float {
 
-<body class="bg-[#FAFAFA] font-[Mulish] text-[#252422]">
+    0%,
+    100% {
+      transform: translateY(0);
+    }
 
-  <header class="bg-[#003049] text-[#fefae0] p-5">
-    <div class="max-w-6xl mx-auto flex items-center gap-2">
-      <svg class="w-6 h-6 text-[#00CF83]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-        <circle cx="12" cy="12" r="10" stroke="currentColor" />
-        <path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20" stroke="currentColor" />
-      </svg>
-      <h1 class="text-2xl font-bold">Soluciones Digitales</h1>
-    </div>
-  </header>
+    50% {
+      transform: translateY(-10px);
+    }
+  }
 
-  <!-- Sección Hero -->
-  <section class="bg-[#f8fafc] py-16 px-4">
-    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10">
-      <!-- Texto -->
-      <div class="flex-1 text-center md:text-left">
-        <span class="uppercase text-xs tracking-widest text-gray-500 font-semibold">NISdev</span>
-        <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mt-2 mb-4">
-          Impulsa tu negocio con <span class="text-[#00CF83]">Tecnologia</span> Digital
-        </h1>
-        <p class="text-lg text-gray-700 mb-6 max-w-lg">Desarrollamos páginas web profesionales y automatizaciones
-          inteligentes para que tu empresa crezca y ahorre tiempo.</p>
-        <a href="#"
-          class="inline-block bg-[#00CF83] text-white font-semibold px-7 py-3 rounded-lg shadow-md hover:shadow-[0_0_10px_#00CF83] transition-shadow mb-6">Solicitar
-          Consulta</a>
-        <div class="flex flex-wrap gap-3 mt-4">
-          <span class="px-4 py-2 bg-gray-100 rounded-full text-sm font-medium text-gray-700">Desarrollo Web</span>
-          <span class="px-4 py-2 bg-gray-100 rounded-full text-sm font-medium text-gray-700">Automatizaciones</span>
-          <span class="px-4 py-2 bg-gray-100 rounded-full text-sm font-medium text-gray-700">Formularios Online</span>
-          <span class="px-4 py-2 bg-gray-100 rounded-full text-sm font-medium text-gray-700">Integraciones</span>
-          <span class="px-4 py-2 bg-gray-100 rounded-full text-sm font-medium text-gray-700">Soporte
-            personalizado</span>
-        </div>
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  /* Clase para perspectiva */
+  .perspective {
+    perspective: 1000px;
+  }
+
+  /* Rotación 3D */
+  .rotate-3d {
+    transform: rotateX(10deg) rotateY(-10deg);
+  }
+
+  .hover-rotate-reset:hover {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+</style>
+</head>
+
+<body class="bg-[#f8fafc] py-16 px-4 font-sans">
+
+  <section class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10 relative">
+    <!-- Texto -->
+    <div class="flex-1 text-center md:text-left">
+      <span class="uppercase text-xs tracking-widest text-gray-500 font-semibold">NISdev</span>
+      <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mt-2 mb-4">
+        Impulsa tu negocio con <span class="text-[#00CF83]">Tecnología</span> Digital
+      </h1>
+      <p class="text-lg text-gray-700 mb-6 max-w-lg">
+        Desarrollamos páginas web profesionales y automatizaciones
+        inteligentes para que tu empresa crezca y ahorre tiempo.
+      </p>
+      <a href="#form"
+        class="inline-block bg-[#00CF83] text-white font-semibold px-7 py-3 rounded-lg shadow-md hover:shadow-[0_0_10px_#00CF83] transition-shadow mb-6">
+        Solicitar Consulta
+      </a>
+      <div class="flex flex-wrap gap-3 mt-4">
+        <span class="px-4 py-2 bg-gray-100 rounded-full text-sm font-medium text-gray-700">Desarrollo Web</span>
+        <span class="px-4 py-2 bg-gray-100 rounded-full text-sm font-medium text-gray-700">Automatizaciones</span>
+        <span class="px-4 py-2 bg-gray-100 rounded-full text-sm font-medium text-gray-700">Formularios Online</span>
+        <span class="px-4 py-2 bg-gray-100 rounded-full text-sm font-medium text-gray-700">Integraciones</span>
+        <span class="px-4 py-2 bg-gray-100 rounded-full text-sm font-medium text-gray-700">Soporte personalizado</span>
       </div>
-      <!-- Imagen -->
-      <div class="flex-1 flex justify-center">
-        <div class="relative w-[420px] h-[500px] flex items-center justify-center">
-          <img src="/assets/img/img-hero.jpg"
-            alt="Lady Justice" class="rounded-2xl shadow-lg object-cover w-full h-full border-4 border-[#e9ecef]" />
-          <div class="absolute inset-0 rounded-2xl ring-4 ring-[#00CF83]/20 pointer-events-none"></div>
-        </div>
+    </div>
+
+    <!-- Imagen con dispositivos flotantes -->
+    <div class="flex-1 flex justify-center">
+      <div class="relative w-[320px] sm:w-[420px] h-[420px] sm:h-[500px] flex items-center justify-center perspective">
+        <!-- Imagen base -->
+        <img src="/assets/img/img-hero.jpg" alt="Escritorio"
+          class="rounded-2xl shadow-lg object-cover w-full h-full border-4 border-[#e9ecef]" />
+        <div class="absolute inset-0 rounded-2xl ring-4 ring-[#00CF83]/20 pointer-events-none"></div>
+
+        <!-- Notebook flotante 3D -->
+        <img src="/assets/img/celular.png" alt="Notebook"
+          class="absolute w-24 sm:w-32 top-[-30px] right-[-20px] animate-float z-10 pointer-events-none rotate-3d hover-rotate-reset transition-transform duration-500" />
+
+        <!-- Celular flotante 3D -->
+        <img src="/assets/img/notebook.png" alt="Celular"
+          class="absolute w-20 sm:w-24 bottom-[-30px] left-[-20px] animate-float z-10 pointer-events-none rotate-3d hover-rotate-reset transition-transform duration-500" />
       </div>
     </div>
   </section>
@@ -118,7 +150,8 @@
             <!-- Engranaje -->
             <svg class="w-5 h-5 text-[#00CF83]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <circle cx="12" cy="12" r="3" stroke="currentColor" />
-              <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06A1.65 1.65 0 0015 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 008.6 15a1.65 1.65 0 00-1.82-.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.6a1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0015 8.6a1.65 1.65 0 001.82.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 15z"
+              <path
+                d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06A1.65 1.65 0 0015 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 008.6 15a1.65 1.65 0 00-1.82-.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.6a1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0015 8.6a1.65 1.65 0 001.82.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 15z"
                 stroke="currentColor" />
             </svg>
             Automatización de tareas repetitivas
@@ -153,7 +186,7 @@
     </div>
   </section>
   <!-- Inicio Formulario -->
-  <section class="py-16 px-4">
+  <section id="form" class="py-16 px-4">
     <div class="text-center mb-10">
       <h2 class="text-3xl font-bold">Solicitar Informe</h2>
       <p class="text-lg text-gray-700 mt-2">Contanos sobre tu proyecto y recibí un informe personalizado</p>
