@@ -10,3 +10,7 @@ body {
 .btn-cta:hover {
   box-shadow: 0 0 10px #00CF83;
 }
+
+ul{
+  text-decoration: none;
+}
