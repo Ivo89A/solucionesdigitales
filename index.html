@@ -5,6 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Soluciones Digitales</title>
+    <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;700&display=swap" rel="stylesheet" />
@@ -41,6 +42,35 @@
     transform: rotateX(0deg) rotateY(0deg);
   }
 </style>
+
+<script type="module">
+  import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
+  createChat({
+    webhookUrl: 'https://n8n-production-5982.up.railway.app/webhook/0959f20e-2a5a-466a-8f95-b603a58d23d0/chat',
+    webhookConfig: { method: 'POST', headers: {} },
+    target: '#n8n-chat',
+    mode: 'window',
+    chatInputKey: 'chatInput',
+    chatSessionKey: 'sessionId',
+    metadata: {},
+    showWelcomeScreen: false,
+    defaultLanguage: 'en',
+    initialMessages: [
+      'Mucho gusto! 👋',
+      'Mi nombre es AutoBot, ¿en qué te puedo ayudar hoy?'
+    ],
+    i18n: {
+      en: {
+        title: 'Este es nuestro chat en vivo! 👋',
+        subtitle: "Comienza a escribirnos, con atención 24/7.",
+        footer: '',
+        getStarted: 'Nueva conversación',
+        inputPlaceholder: 'Escribe tu pregunta...',
+      },
+    },
+  });
+</script>
 </head>
 
 <body class="bg-[#f8fafc] py-16 px-4 font-sans">
