@@ -386,11 +386,11 @@
     </div>
   </section>
 
-  <!-- Formulario de Contacto -->
-  <section id="contacto" class="py-16 px-4">
+   <!-- Inicio Formulario -->
+  <section id="form" class="py-16 px-4">
     <div class="text-center mb-10">
-      <h2 class="text-3xl font-bold">¿Tienes un Proyecto en Mente?</h2>
-      <p class="text-lg text-gray-700 mt-2">Contanos sobre tu idea y recibí una propuesta personalizada</p>
+      <h2 class="text-3xl font-bold">Solicitar Informe</h2>
+      <p class="text-lg text-gray-700 mt-2">Contanos sobre tu proyecto y recibí un informe personalizado</p>
     </div>
     <div class="bg-white shadow-lg rounded-2xl p-8 w-full max-w-xl mx-auto">
       <form action="https://formspree.io/f/mjkoggwy" method="POST" class="space-y-6">
@@ -407,34 +407,23 @@
         </div>
 
         <div>
-          <label class="block text-sm font-medium mb-1" for="tipo-proyecto">Tipo de proyecto *</label>
-          <select id="tipo-proyecto" name="tipo-proyecto" 
-            class="w-full border rounded-lg p-3 text-sm outline-none focus:ring-2 focus:ring-[#00CF83]" required>
-            <option value="">Selecciona una opción</option>
-            <option value="desarrollo-web">Desarrollo Web</option>
-            <option value="automatizacion">Automatización</option>
-            <option value="ecommerce">E-commerce</option>
-            <option value="otro">Otro</option>
-          </select>
-        </div>
-
-        <div>
-          <label class="block text-sm font-medium mb-1" for="mensaje">Descripción del proyecto *</label>
+          <label class="block text-sm font-medium mb-1" for="mensaje">Mensaje personalizado *</label>
           <textarea id="mensaje" name="mensaje" rows="5"
-            placeholder="Contanos sobre tu proyecto, objetivos y presupuesto estimado..."
+            placeholder="Contanos sobre tu proyecto, necesidades y objetivos..."
             class="w-full border rounded-lg p-3 text-sm outline-none focus:ring-2 focus:ring-[#00CF83]"
             required></textarea>
         </div>
 
         <button type="submit"
           class="w-full flex items-center justify-center gap-2 py-3 px-6 rounded-lg font-semibold text-white text-base bg-[#00CF83] transition-shadow hover:shadow-[0_0_10px_#00CF83]">
-          Enviar Propuesta
+          Solicitar Informe
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"
             stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
           </svg>
         </button>
       </form>
+      <!-- Fin Formulario -->
     </div>
   </section>
 
