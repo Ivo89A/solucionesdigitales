@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Proyectos - Soluciones Digitales</title>
+  <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+
+<style>
+  /* Animación de flotación */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  /* Animaciones para las tarjetas de proyectos */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  /* Hover effects para proyectos */
+  .project-card {
+    transition: all 0.3s ease;
+  }
+
+  .project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 207, 131, 0.15);
+  }
+
+  .project-image {
+    transition: transform 0.3s ease;
+  }
+
+  .project-card:hover .project-image {
+    transform: scale(1.05);
+  }
+
+  /* Filtros de categorías */
+  .filter-btn {
+    transition: all 0.3s ease;
+  }
+
+  .filter-btn.active {
+    background-color: #00CF83;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 207, 131, 0.3);
+  }
+</style>
+
+<script type="module">
+  import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
+  createChat({
+    webhookUrl: 'https://n8n-production-5982.up.railway.app/webhook/0959f20e-2a5a-466a-8f95-b603a58d23d0/chat',
+    webhookConfig: { method: 'POST', headers: {} },
+    target: '#n8n-chat',
+    mode: 'window',
+    chatInputKey: 'chatInput',
+    chatSessionKey: 'sessionId',
+    metadata: {},
+    showWelcomeScreen: false,
+    defaultLanguage: 'en',
+    initialMessages: [
+      'Mucho gusto! 👋',
+      'Mi nombre es AutoBot, ¿en qué te puedo ayudar hoy?'
+    ],
+    i18n: {
+      en: {
+        title: 'Este es nuestro chat en vivo! 👋',
+        subtitle: "Comienza a escribirnos, con atención 24/7.",
+        footer: '',
+        getStarted: 'Nueva conversación',
+        inputPlaceholder: 'Escribe tu pregunta...',
+      },
+    },
+  });
+</script>
+
+<body class="bg-[#f8fafc] font-sans">
+
+  <!-- Header/Navigation -->
+  <header class="bg-white shadow-sm py-4 px-4 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto flex justify-between items-center">
+      <div class="flex items-center">
+        <span class="text-2xl font-bold text-[#00CF83]">NISdev</span>
+      </div>
+      <nav class="hidden md:flex space-x-8">
+        <a href="index.html" class="text-gray-700 hover:text-[#00CF83] transition-colors">Inicio</a>
+        <a href="proyectos.html" class="text-[#00CF83] font-semibold">Proyectos</a>
+        <a href="#contacto" class="text-gray-700 hover:text-[#00CF83] transition-colors">Contacto</a>
+      </nav>
+      <a href="#contacto" class="bg-[#00CF83] text-white px-4 py-2 rounded-lg hover:shadow-[0_0_10px_#00CF83] transition-shadow">
+        Consulta Gratis
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="py-20 px-4">
+    <div class="max-w-6xl mx-auto text-center">
+      <span class="uppercase text-xs tracking-widest text-gray-500 font-semibold">NUESTRO PORTAFOLIO</span>
+      <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mt-4 mb-6">
+        Proyectos que <span class="text-[#00CF83]">Transforman</span> Negocios
+      </h1>
+      <p class="text-xl text-gray-700 mb-8 max-w-3xl mx-auto">
+        Descubre cómo hemos ayudado a empresas como la tuya a crecer con soluciones digitales innovadoras y automatizaciones inteligentes.
+      </p>
+      
+      <!-- Filtros de categorías -->
+      <div class="flex flex-wrap justify-center gap-4 mb-12">
+        <button class="filter-btn active px-6 py-3 rounded-full bg-gray-100 text-gray-700 font-medium" data-filter="all">
+          Todos los Proyectos
+        </button>
+        <button class="filter-btn px-6 py-3 rounded-full bg-gray-100 text-gray-700 font-medium" data-filter="web">
+          Desarrollo Web
+        </button>
+        <button class="filter-btn px-6 py-3 rounded-full bg-gray-100 text-gray-700 font-medium" data-filter="automation">
+          Automatizaciones
+        </button>
+        <button class="filter-btn px-6 py-3 rounded-full bg-gray-100 text-gray-700 font-medium" data-filter="ecommerce">
+          E-commerce
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Proyectos Grid -->
+  <section class="py-16 px-4">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Proyecto 1 -->
+        <div class="project-card bg-white rounded-2xl shadow-lg overflow-hidden fade-in-up" data-category="web">
+          <div class="overflow-hidden">
+            <img src="https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=600" 
+                 alt="Restaurante Gourmet" class="project-image w-full h-48 object-cover">
+          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-3">
+              <span class="px-3 py-1 bg-[#e6fcf3] text-[#00CF83] text-xs font-semibold rounded-full">Desarrollo Web</span>
+              <span class="text-gray-500 text-sm">2024</span>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Restaurante Gourmet</h3>
+            <p class="text-gray-600 mb-4">Sitio web completo con sistema de reservas online y menú digital interactivo.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">React</span>
+              <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">Node.js</span>
+              <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">MongoDB</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center text-[#00CF83]">
+                <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <span class="text-sm font-medium">Completado</span>
+              </div>
+              <button class="text-[#00CF83] hover:text-[#00a86b] font-medium text-sm">Ver Proyecto →</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Proyecto 2 -->
+        <div class="project-card bg-white rounded-2xl shadow-lg overflow-hidden fade-in-up" data-category="automation">
+          <div class="overflow-hidden">
+            <img src="https://images.pexels.com/photos/590016/pexels-photo-590016.jpeg?auto=compress&cs=tinysrgb&w=600" 
+                 alt="Automatización CRM" class="project-image w-full h-48 object-cover">
+          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-3">
+              <span class="px-3 py-1 bg-[#fff3cd] text-[#856404] text-xs font-semibold rounded-full">Automatización</span>
+              <span class="text-gray-500 text-sm">2024</span>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Sistema CRM Automatizado</h3>
+            <p class="text-gray-600 mb-4">Automatización completa de leads desde formularios web hasta seguimiento por email.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">n8n</span>
+              <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">Google Sheets</span>
+              <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">WhatsApp API</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center text-[#00CF83]">
+                <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <span class="text-sm font-medium">Completado</span>
+              </div>
+              <button class="text-[#00CF83] hover:text-[#00a86b] font-medium text-sm">Ver Proyecto →</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Proyecto 3 -->
+        <div class="project-card bg-white rounded-2xl shadow-lg overflow-hidden fade-in-up" data-category="ecommerce">
+          <div class="overflow-hidden">
+            <img src="https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=600" 
+                 alt="Tienda Online" class="project-image w-full h-48 object-cover">
+          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-3">
+              <span class="px-3 py-1 bg-[#d1ecf1] text-[#0c5460] text-xs font-semibold rounded-full">E-commerce</span>
+              <span class="text-gray-500 text-sm">2024</span>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Tienda de Moda Online</h3>
+            <p class="text-gray-600 mb-4">Plataforma e-commerce completa con pasarela de pagos y gestión de inventario.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">Shopify</span>
+              <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">Stripe</span>
+              <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">Analytics</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center text-[#00CF83]">
+                <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <span class="text-sm font-medium">Completado</span>
+              </div>
+              <button class="text-[#00CF83] hover:text-[#00a86b] font-medium text-sm">Ver Proyecto →</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Proyecto 4 -->
+        <div class="project-card bg-white rounded-2xl shadow-lg overflow-hidden fade-in-up" data-category="web">
+          <div class="overflow-hidden">
+            <img src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=600" 
+                 alt="Clínica Médica" class="project-image w-full h-48 object-cover">
+          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-3">
+              <span class="px-3 py-1 bg-[#e6fcf3] text-[#00CF83] text-xs font-semibold rounded-full">Desarrollo Web</span>
+              <span class="text-gray-500 text-sm">2024</span>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Clínica Médica Integral</h3>
+            <p class="text-gray-600 mb-4">Portal web con sistema de citas online y gestión de pacientes.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">Vue.js</span>
+              <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">Laravel</span>
+              <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">MySQL</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center text-orange-500">
+                <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-sm font-medium">En Desarrollo</span>
+              </div>
+              <button class="text-[#00CF83] hover:text-[#00a86b] font-medium text-sm">Ver Proyecto →</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Proyecto 5 -->
+        <div class="project-card bg-white rounded-2xl shadow-lg overflow-hidden fade-in-up" data-category="automation">
+          <div class="overflow-hidden">
+            <img src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=600" 
+                 alt="Automatización Inventario" class="project-image w-full h-48 object-cover">
+          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-3">
+              <span class="px-3 py-1 bg-[#fff3cd] text-[#856404] text-xs font-semibold rounded-full">Automatización</span>
+              <span class="text-gray-500 text-sm">2024</span>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Control de Inventario</h3>
+            <p class="text-gray-600 mb-4">Sistema automatizado de control de stock con alertas y reportes automáticos.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">n8n</span>
+              <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">Airtable</span>
+              <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">Slack</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center text-[#00CF83]">
+                <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <span class="text-sm font-medium">Completado</span>
+              </div>
+              <button class="text-[#00CF83] hover:text-[#00a86b] font-medium text-sm">Ver Proyecto →</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Proyecto 6 -->
+        <div class="project-card bg-white rounded-2xl shadow-lg overflow-hidden fade-in-up" data-category="web">
+          <div class="overflow-hidden">
+            <img src="https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=600" 
+                 alt="Inmobiliaria" class="project-image w-full h-48 object-cover">
+          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-3">
+              <span class="px-3 py-1 bg-[#e6fcf3] text-[#00CF83] text-xs font-semibold rounded-full">Desarrollo Web</span>
+              <span class="text-gray-500 text-sm">2023</span>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Portal Inmobiliario</h3>
+            <p class="text-gray-600 mb-4">Plataforma completa para búsqueda y gestión de propiedades inmobiliarias.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">Next.js</span>
+              <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">PostgreSQL</span>
+              <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">Maps API</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center text-[#00CF83]">
+                <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <span class="text-sm font-medium">Completado</span>
+              </div>
+              <button class="text-[#00CF83] hover:text-[#00a86b] font-medium text-sm">Ver Proyecto →</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Estadísticas -->
+  <section class="py-16 px-4 bg-white">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold mb-4">Resultados que Hablan por Sí Solos</h2>
+        <p class="text-lg text-gray-600">Nuestros proyectos generan impacto real en los negocios de nuestros clientes</p>
+      </div>
+      
+      <div class="grid md:grid-cols-4 gap-8 text-center">
+        <div class="p-6">
+          <div class="text-4xl font-bold text-[#00CF83] mb-2">50+</div>
+          <div class="text-gray-600">Proyectos Completados</div>
+        </div>
+        <div class="p-6">
+          <div class="text-4xl font-bold text-[#00CF83] mb-2">98%</div>
+          <div class="text-gray-600">Satisfacción del Cliente</div>
+        </div>
+        <div class="p-6">
+          <div class="text-4xl font-bold text-[#00CF83] mb-2">24/7</div>
+          <div class="text-gray-600">Soporte Técnico</div>
+        </div>
+        <div class="p-6">
+          <div class="text-4xl font-bold text-[#00CF83] mb-2">3 años</div>
+          <div class="text-gray-600">de Experiencia</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 px-4 bg-gradient-to-r from-[#00CF83] to-[#00a86b]">
+    <div class="max-w-4xl mx-auto text-center text-white">
+      <h2 class="text-4xl font-bold mb-6">¿Listo para Transformar tu Negocio?</h2>
+      <p class="text-xl mb-8 opacity-90">
+        Únete a las empresas que ya están creciendo con nuestras soluciones digitales
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#contacto" class="bg-white text-[#00CF83] px-8 py-4 rounded-lg font-semibold hover:shadow-lg transition-shadow">
+          Solicitar Consulta Gratuita
+        </a>
+        <a href="index.html" class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-[#00CF83] transition-colors">
+          Ver Más Servicios
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Formulario de Contacto -->
+  <section id="contacto" class="py-16 px-4">
+    <div class="text-center mb-10">
+      <h2 class="text-3xl font-bold">¿Tienes un Proyecto en Mente?</h2>
+      <p class="text-lg text-gray-700 mt-2">Contanos sobre tu idea y recibí una propuesta personalizada</p>
+    </div>
+    <div class="bg-white shadow-lg rounded-2xl p-8 w-full max-w-xl mx-auto">
+      <form action="https://formspree.io/f/mjkoggwy" method="POST" class="space-y-6">
+        <div>
+          <label class="block text-sm font-medium mb-1" for="empresa">Nombre de empresa *</label>
+          <input type="text" id="empresa" name="empresa" placeholder="Tu empresa"
+            class="w-full border rounded-lg p-3 text-sm outline-none focus:ring-2 focus:ring-[#00CF83]" required />
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium mb-1" for="email">Correo corporativo *</label>
+          <input type="email" id="email" name="email" placeholder="contacto@tuempresa.com"
+            class="w-full border rounded-lg p-3 text-sm outline-none focus:ring-2 focus:ring-[#00CF83]" required />
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium mb-1" for="tipo-proyecto">Tipo de proyecto *</label>
+          <select id="tipo-proyecto" name="tipo-proyecto" 
+            class="w-full border rounded-lg p-3 text-sm outline-none focus:ring-2 focus:ring-[#00CF83]" required>
+            <option value="">Selecciona una opción</option>
+            <option value="desarrollo-web">Desarrollo Web</option>
+            <option value="automatizacion">Automatización</option>
+            <option value="ecommerce">E-commerce</option>
+            <option value="otro">Otro</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium mb-1" for="mensaje">Descripción del proyecto *</label>
+          <textarea id="mensaje" name="mensaje" rows="5"
+            placeholder="Contanos sobre tu proyecto, objetivos y presupuesto estimado..."
+            class="w-full border rounded-lg p-3 text-sm outline-none focus:ring-2 focus:ring-[#00CF83]"
+            required></textarea>
+        </div>
+
+        <button type="submit"
+          class="w-full flex items-center justify-center gap-2 py-3 px-6 rounded-lg font-semibold text-white text-base bg-[#00CF83] transition-shadow hover:shadow-[0_0_10px_#00CF83]">
+          Enviar Propuesta
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+            stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="bg-[#003049] text-[#fefae0] text-center py-8">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-4 md:mb-0">
+          <span class="text-2xl font-bold text-[#00CF83]">NISdev</span>
+          <p class="text-sm mt-1">Soluciones Digitales Innovadoras</p>
+        </div>
+        <div class="flex space-x-6">
+          <a href="index.html" class="hover:text-[#00CF83] transition-colors">Inicio</a>
+          <a href="proyectos.html" class="hover:text-[#00CF83] transition-colors">Proyectos</a>
+          <a href="#contacto" class="hover:text-[#00CF83] transition-colors">Contacto</a>
+        </div>
+      </div>
+      <div class="border-t border-gray-600 mt-6 pt-6">
+        <p class="text-sm">© 2025 Soluciones Digitales. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Funcionalidad de filtros
+    document.addEventListener('DOMContentLoaded', function() {
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      const projectCards = document.querySelectorAll('.project-card');
+
+      filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const filter = this.getAttribute('data-filter');
+          
+          // Actualizar botones activos
+          filterButtons.forEach(btn => btn.classList.remove('active'));
+          this.classList.add('active');
+          
+          // Filtrar proyectos
+          projectCards.forEach(card => {
+            const category = card.getAttribute('data-category');
+            
+            if (filter === 'all' || category === filter) {
+              card.style.display = 'block';
+              card.classList.add('fade-in-up');
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+
+      // Animación de entrada para las tarjetas
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in-up');
+          }
+        });
+      }, observerOptions);
+
+      projectCards.forEach(card => {
+        observer.observe(card);
+      });
+    });
+  </script>
+
+</body>
+
+</html>
