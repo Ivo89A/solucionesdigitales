@@ -1,0 +1,23 @@
+{
+  "name": "soluciones-digitales",
+  "version": "1.0.0",
+  "description": "Sitio web de soluciones digitales con desarrollo web y automatizaciones",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx serve .",
+    "build": "echo 'Build completed - static files ready'",
+    "start": "npx serve .",
+    "preview": "npx serve ."
+  },
+  "keywords": [
+    "desarrollo-web",
+    "automatizaciones",
+    "n8n",
+    "soluciones-digitales"
+  ],
+  "author": "NISdev",
+  "license": "MIT",
+  "devDependencies": {
+    "serve": "^14.2.1"
+  }
+}
