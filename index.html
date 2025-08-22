@@ -73,26 +73,44 @@
 </script>
 </head>
 
-<body class="bg-[#f8fafc] py-16 px-4 font-sans">
+<body class="bg-[#f8fafc]">
 
   <!-- Header/Navigation -->
   <header class="bg-white shadow-sm py-4 px-4 sticky top-0 z-50 -mt-16">
     <div class="max-w-6xl mx-auto flex justify-between items-center">
       <div class="flex items-center">
-        <span class="text-2xl font-bold text-[#00CF83]">NISdev</span>
+        <a href="/index.html" class="text-2xl font-bold text-[#00CF83]">NISdev</a>
       </div>
       <nav class="hidden md:flex space-x-8">
         <a href="index.html" class="text-[#00CF83] font-semibold">Inicio</a>
         <a href="proyectos.html" class="text-gray-700 hover:text-[#00CF83] transition-colors">Proyectos</a>
         <a href="#form" class="text-gray-700 hover:text-[#00CF83] transition-colors">Contacto</a>
       </nav>
-      <a href="#form" class="bg-[#00CF83] text-white px-4 py-2 rounded-lg hover:shadow-[0_0_10px_#00CF83] transition-shadow">
+      <a href="#form" class="bg-[#00CF83] text-white px-4 py-2 rounded-lg hover:shadow-[0_0_10px_#00CF83] transition-shadow hidden md:inline-block">
         Consulta Gratis
       </a>
+      <!-- Botón menú hamburguesa solo móvil -->
+      <button id="menu-toggle" class="md:hidden block text-[#00CF83] focus:outline-none" aria-label="Abrir menú">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
     </div>
   </header>
 
-  <section class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10 relative">
+  <!-- Menú móvil -->
+  <div id="mobile-menu" class="fixed inset-0 bg-[#003049]/90 z-50 flex flex-col items-center justify-center space-y-8 text-white text-xl font-semibold transition-all duration-300 opacity-0 pointer-events-none">
+    <button id="menu-close" class="absolute top-6 right-6 text-white" aria-label="Cerrar menú">
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+    <a href="index.html" class="hover:text-[#00CF83]">Inicio</a>
+    <a href="proyectos.html" class="hover:text-[#00CF83]">Proyectos</a>
+    <a href="#form" id="close" class="bg-[#00CF83] text-white px-6 py-3 rounded-lg shadow hover:bg-[#00a86b] transition">Consultar Gratis</a>
+  </div>
+
+  <section class="max-w-6xl py-[100px] mx-auto flex flex-col md:flex-row md:mx-5 lg:mx-auto items-center gap-10 relative">
     <!-- Texto -->
     <div class="flex-1 text-center md:text-left">
       <span class="uppercase text-xs tracking-widest text-gray-500 font-semibold">NISdev</span>
@@ -213,7 +231,7 @@
           </li>
           <li class="flex items-center gap-2">
             <!-- Target -->
-            <svg class="w-7 h-7 text-[#00CF83]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <svg class="w-8 h-8 md:w-7 md:h-7 lg:w-5 lg:h-5 text-[#00CF83]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <circle cx="12" cy="12" r="10" stroke="currentColor" />
               <circle cx="12" cy="12" r="6" stroke="currentColor" />
               <circle cx="12" cy="12" r="2" stroke="currentColor" />
@@ -273,7 +291,7 @@
     </div>
   </section>
 
-  <footer class="bg-[#003049] text-[#fefae0] text-center py-4">
+  <footer class="bg-[#003049] text-[#fefae0] text-center py-8">
     <div class="max-w-6xl mx-auto px-4">
       <div class="flex flex-col md:flex-row justify-between items-center">
         <div class="mb-4 md:mb-0">
@@ -291,6 +309,25 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuClose = document.getElementById('menu-close');
+    const closeButton = document.getElementById('close');
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+      mobileMenu.classList.add('opacity-100');
+    });
+    menuClose.addEventListener('click', () => {
+      mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+      mobileMenu.classList.remove('opacity-100');
+    });
+    closeButton.addEventListener('click', () => {
+      mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+      mobileMenu.classList.remove('opacity-100');
+    });
+  </script>
 
 </body>
 

@@ -14,7 +14,7 @@ body {
   box-shadow: 0 0 10px #00CF83;
 }
 
- :root {
+:root {
     /*Colores de n8n*/
     --chat--color-primary:rgba(21, 17, 223, 0.74);/*Color circulo pequeño*/
     --chat--color-primary-shade-50:rgba(79, 129, 208, 0.74);/*Color Hover*/

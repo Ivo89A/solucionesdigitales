@@ -108,7 +108,7 @@
   <header class="bg-white shadow-sm py-4 px-4 sticky top-0 z-50">
     <div class="max-w-6xl mx-auto flex justify-between items-center">
       <div class="flex items-center">
-        <span class="text-2xl font-bold text-[#00CF83]">NISdev</span>
+        <a href="/index.html" class="text-2xl font-bold text-[#00CF83]">NISdev</a>
       </div>
       <nav class="hidden md:flex space-x-8">
         <a href="index.html" class="text-gray-700 hover:text-[#00CF83] transition-colors">Inicio</a>
@@ -118,6 +118,23 @@
       <a href="#form" class="bg-[#00CF83] text-white px-4 py-2 rounded-lg hover:shadow-[0_0_10px_#00CF83] transition-shadow">
         Consulta Gratis
       </a>
+      <!-- Botón menú hamburguesa solo móvil -->
+      <button id="menu-toggle" class="md:hidden block text-[#00CF83] focus:outline-none" aria-label="Abrir menú">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+      <!-- Menú móvil -->
+      <div id="mobile-menu" class="fixed inset-0 bg-[#003049]/90 z-50 flex flex-col items-center justify-center space-y-8 text-white text-xl font-semibold transition-all duration-300 opacity-0 pointer-events-none">
+        <button id="menu-close" class="absolute top-6 right-6 text-white" aria-label="Cerrar menú">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+        <a href="index.html" class="hover:text-[#00CF83]">Inicio</a>
+        <a href="proyectos.html" class="hover:text-[#00CF83]">Proyectos</a>
+        <a href="#form" id="close" class="bg-[#00CF83] text-white px-6 py-3 rounded-lg shadow hover:bg-[#00a86b] transition">Consultar Gratis</a>
+      </div>
     </div>
   </header>
 
@@ -154,24 +171,26 @@
   <section class="py-16 px-4">
     <div class="max-w-7xl mx-auto">
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        
-        <!-- Proyecto 1 -->
+
+        <!-- Proyecto 1 Landing Iphone 15 -->
         <div class="project-card bg-white rounded-2xl shadow-lg overflow-hidden fade-in-up" data-category="web">
           <div class="overflow-hidden">
-            <img src="https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=600" 
-                 alt="Restaurante Gourmet" class="project-image w-full h-48 object-cover">
+            <img src="/assets/img/Landing-Iphone15.png" 
+                 alt="Landing Iphone 15" class="project-image w-full h-48 object-cover">
           </div>
           <div class="p-6">
             <div class="flex items-center justify-between mb-3">
               <span class="px-3 py-1 bg-[#e6fcf3] text-[#00CF83] text-xs font-semibold rounded-full">Desarrollo Web</span>
-              <span class="text-gray-500 text-sm">2024</span>
+              <span class="text-gray-500 text-sm">2025</span>
             </div>
-            <h3 class="text-xl font-bold mb-2">Restaurante Gourmet</h3>
-            <p class="text-gray-600 mb-4">Sitio web completo con sistema de reservas online y menú digital interactivo.</p>
+            <h3 class="text-xl font-bold mb-2">Pagina Iphone 15</h3>
+            <p class="text-gray-600 mb-4">
+              Landing informativa que destaca las principales características del iPhone 15, con secciones interactivas, galería de imágenes y comparativa de modelos.
+            </p>
             <div class="flex flex-wrap gap-2 mb-4">
-              <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">React</span>
-              <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">Node.js</span>
-              <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">MongoDB</span>
+              <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">Astro</span>
+              <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">HTML</span>
+              <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">Tailwind</span>
             </div>
             <div class="flex items-center justify-between">
               <div class="flex items-center text-[#00CF83]">
@@ -180,7 +199,7 @@
                 </svg>
                 <span class="text-sm font-medium">Completado</span>
               </div>
-              <button class="text-[#00CF83] hover:text-[#00a86b] font-medium text-sm">Ver Proyecto →</button>
+              <a href="https://template-iphone.netlify.app/" target="_blank" class="text-[#00CF83] hover:text-[#00a86b] font-medium text-sm">Ver Proyecto →</a>
             </div>
           </div>
         </div>
@@ -490,6 +509,23 @@
 
       projectCards.forEach(card => {
         observer.observe(card);
+      });
+
+      const menuToggle = document.getElementById('menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const menuClose = document.getElementById('menu-close');
+      const closeButton = document.getElementById('close');
+      menuToggle.addEventListener('click', () => {
+        mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+        mobileMenu.classList.add('opacity-100');
+      });
+      menuClose.addEventListener('click', () => {
+        mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+        mobileMenu.classList.remove('opacity-100');
+      });
+      closeButton.addEventListener('click', () => {
+      mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+      mobileMenu.classList.remove('opacity-100');
       });
     });
   </script>
